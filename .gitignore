@@ -1,0 +1,9 @@
+# Fail PDF yang dimuat naik — jangan commit kandungan, simpan folder sahaja
+uploads/*
+!uploads/.gitkeep
+
+# Fail sistem / editor
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
