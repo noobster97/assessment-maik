@@ -17,7 +17,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $no_pekerja = trim($_POST['no_pekerja'] ?? '');
     $jabatan = trim($_POST['jabatan'] ?? '');
 
-    // validasi
     $ralat = [];
     if ($nama === '') { $ralat[] = 'Nama peserta wajib diisi.'; }
     if ($no_pekerja === '') { $ralat[] = 'No. pekerja wajib diisi.'; }
@@ -41,7 +40,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     exit;
 }
 
-// carian peserta
 $carian = trim($_GET['carian'] ?? '');
 if ($carian !== '') {
     $stmt = $pdo->prepare('SELECT * FROM peserta WHERE nama LIKE ? OR no_pekerja LIKE ? ORDER BY nama');

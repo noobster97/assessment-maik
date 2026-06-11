@@ -2,7 +2,6 @@
 session_start();
 require 'config/db.php';
 
-// simpan kehadiran
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $mesyuarat_id = $_POST['mesyuarat_id'] ?? '';
     $status_semua = $_POST['status'] ?? [];
@@ -26,7 +25,6 @@ $senaraiMesyuarat = $pdo->query('SELECT * FROM mesyuarat ORDER BY tarikh DESC')-
 $peserta = [];
 $ringkasan = ['jumlah' => 0, 'hadir' => 0, 'tidak' => 0];
 if ($mesyuarat_id !== '') {
-    // ambil semua peserta + status untuk mesyuarat yang dipilih
     $stmt = $pdo->prepare(
         'SELECT p.*, k.status
            FROM peserta p

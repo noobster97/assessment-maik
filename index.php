@@ -1,12 +1,10 @@
 <?php
 require 'config/db.php';
 
-// jumlah keseluruhan
 $jumKursus = $pdo->query('SELECT COUNT(*) FROM mesyuarat')->fetchColumn();
 $jumPeserta = $pdo->query('SELECT COUNT(*) FROM peserta')->fetchColumn();
 $jumHadir = $pdo->query("SELECT COUNT(*) FROM kehadiran WHERE status = 'Hadir'")->fetchColumn();
 
-// ringkasan setiap mesyuarat
 $ringkasan = $pdo->query(
     "SELECT m.tajuk, m.tarikh,
             SUM(CASE WHEN k.status = 'Hadir'       THEN 1 ELSE 0 END) AS hadir,

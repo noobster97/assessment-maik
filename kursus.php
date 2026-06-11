@@ -17,12 +17,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $tajuk = trim($_POST['tajuk'] ?? '');
     $tarikh = trim($_POST['tarikh'] ?? '');
 
-    // validasi
     $ralat = [];
     if ($tajuk === '') { $ralat[] = 'Tajuk wajib diisi.'; }
     if ($tarikh === '') { $ralat[] = 'Tarikh wajib diisi.'; }
 
-    // upload pdf (kalau ada)
     $namaPdf = null;
     if (!empty($_FILES['bahan_pdf']['name'])) {
         $f = $_FILES['bahan_pdf'];
