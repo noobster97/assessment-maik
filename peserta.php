@@ -61,26 +61,26 @@ require 'includes/header.php';
 ?>
 
 <?php if (!empty($_SESSION['mesej'])): ?>
-    <div class="alert <?= $_SESSION['jenis'] === 'ok' ? 'alert-ok' : 'alert-err' ?>"><?= e($_SESSION['mesej']) ?></div>
+    <div class="alert <?= $_SESSION['jenis'] === 'ok' ? 'alert-ok' : 'alert-err' ?>"><?= esc($_SESSION['mesej']) ?></div>
     <?php unset($_SESSION['mesej'], $_SESSION['jenis']); ?>
 <?php endif; ?>
 
 <div class="card">
     <h2><?= $edit ? 'Kemaskini Peserta' : 'Daftar Peserta' ?></h2>
     <form method="post">
-        <input type="hidden" name="id" value="<?= e($edit['id'] ?? '') ?>">
+        <input type="hidden" name="id" value="<?= esc($edit['id'] ?? '') ?>">
         <div class="row">
             <div class="field">
                 <label>Nama Peserta</label>
-                <input type="text" name="nama" value="<?= e($edit['nama'] ?? '') ?>" required>
+                <input type="text" name="nama" value="<?= esc($edit['nama'] ?? '') ?>" required>
             </div>
             <div class="field">
                 <label>No. Pekerja</label>
-                <input type="text" name="no_pekerja" value="<?= e($edit['no_pekerja'] ?? '') ?>" required>
+                <input type="text" name="no_pekerja" value="<?= esc($edit['no_pekerja'] ?? '') ?>" required>
             </div>
             <div class="field">
                 <label>Jabatan</label>
-                <input type="text" name="jabatan" value="<?= e($edit['jabatan'] ?? '') ?>" required>
+                <input type="text" name="jabatan" value="<?= esc($edit['jabatan'] ?? '') ?>" required>
             </div>
         </div>
         <button type="submit"><?= $edit ? 'Kemaskini' : 'Daftar' ?></button>
@@ -93,7 +93,7 @@ require 'includes/header.php';
     <form method="get" class="row" style="align-items:flex-end; margin-bottom:14px">
         <div class="field">
             <label>Cari (Nama atau No. Pekerja)</label>
-            <input type="search" name="carian" value="<?= e($carian) ?>" placeholder="Contoh: Ahmad atau MAIK001">
+            <input type="search" name="carian" value="<?= esc($carian) ?>" placeholder="Contoh: Ahmad atau MAIK001">
         </div>
         <div class="field" style="flex:0">
             <button type="submit">Cari</button>
@@ -109,9 +109,9 @@ require 'includes/header.php';
         <?php foreach ($senarai as $i => $p): ?>
         <tr>
             <td><?= $i + 1 ?></td>
-            <td><?= e($p['nama']) ?></td>
-            <td><?= e($p['no_pekerja']) ?></td>
-            <td><?= e($p['jabatan']) ?></td>
+            <td><?= esc($p['nama']) ?></td>
+            <td><?= esc($p['no_pekerja']) ?></td>
+            <td><?= esc($p['jabatan']) ?></td>
             <td class="actions">
                 <a href="peserta.php?edit=<?= $p['id'] ?>" class="btn btn-sm btn-grey">Kemaskini</a>
                 <form method="post" style="display:inline" onsubmit="return confirm('Hapus peserta ini?')">

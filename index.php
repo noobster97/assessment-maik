@@ -38,8 +38,8 @@ require 'includes/header.php';
         <tr><th>Tajuk</th><th>Tarikh</th><th>Hadir</th><th>Tidak Hadir</th><th>Jumlah Ditanda</th></tr>
         <?php foreach ($ringkasan as $r): ?>
         <tr>
-            <td><?= e($r['tajuk']) ?></td>
-            <td><?= e($r['tarikh']) ?></td>
+            <td><?= esc($r['tajuk']) ?></td>
+            <td><?= esc($r['tarikh']) ?></td>
             <td><span class="badge badge-hadir"><?= (int) $r['hadir'] ?></span></td>
             <td><span class="badge badge-tidak"><?= (int) $r['tidak'] ?></span></td>
             <td><?= (int) $r['jumlah'] ?></td>

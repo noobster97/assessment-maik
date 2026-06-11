@@ -45,7 +45,7 @@ require 'includes/header.php';
 ?>
 
 <?php if (!empty($_SESSION['mesej'])): ?>
-    <div class="alert <?= $_SESSION['jenis'] === 'ok' ? 'alert-ok' : 'alert-err' ?>"><?= e($_SESSION['mesej']) ?></div>
+    <div class="alert <?= $_SESSION['jenis'] === 'ok' ? 'alert-ok' : 'alert-err' ?>"><?= esc($_SESSION['mesej']) ?></div>
     <?php unset($_SESSION['mesej'], $_SESSION['jenis']); ?>
 <?php endif; ?>
 
@@ -58,7 +58,7 @@ require 'includes/header.php';
                 <option value="">Sila pilih</option>
                 <?php foreach ($senaraiMesyuarat as $m): ?>
                     <option value="<?= $m['id'] ?>" <?= $m['id'] == $mesyuarat_id ? 'selected' : '' ?>>
-                        <?= e($m['tajuk']) ?> (<?= e($m['tarikh']) ?>)
+                        <?= esc($m['tajuk']) ?> (<?= esc($m['tarikh']) ?>)
                     </option>
                 <?php endforeach; ?>
             </select>
@@ -81,14 +81,14 @@ require 'includes/header.php';
     <div class="card">
         <h3>Tanda Kehadiran</h3>
         <form method="post">
-            <input type="hidden" name="mesyuarat_id" value="<?= e($mesyuarat_id) ?>">
+            <input type="hidden" name="mesyuarat_id" value="<?= esc($mesyuarat_id) ?>">
             <table>
                 <tr><th>Nama</th><th>No. Pekerja</th><th>Jabatan</th><th>Status</th></tr>
                 <?php foreach ($peserta as $p): ?>
                 <tr>
-                    <td><?= e($p['nama']) ?></td>
-                    <td><?= e($p['no_pekerja']) ?></td>
-                    <td><?= e($p['jabatan']) ?></td>
+                    <td><?= esc($p['nama']) ?></td>
+                    <td><?= esc($p['no_pekerja']) ?></td>
+                    <td><?= esc($p['jabatan']) ?></td>
                     <td class="actions">
                         <label style="display:inline; font-weight:normal; margin-right:12px">
                             <input type="radio" name="status[<?= $p['id'] ?>]" value="Hadir"

@@ -15,6 +15,6 @@ try {
     die('Sambungan pangkalan data gagal: ' . htmlspecialchars($e->getMessage()));
 }
 
-function e($text) {
+function esc($text) {
     return htmlspecialchars((string) $text, ENT_QUOTES, 'UTF-8');
 }

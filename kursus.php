@@ -69,22 +69,22 @@ require 'includes/header.php';
 ?>
 
 <?php if (!empty($_SESSION['mesej'])): ?>
-    <div class="alert <?= $_SESSION['jenis'] === 'ok' ? 'alert-ok' : 'alert-err' ?>"><?= e($_SESSION['mesej']) ?></div>
+    <div class="alert <?= $_SESSION['jenis'] === 'ok' ? 'alert-ok' : 'alert-err' ?>"><?= esc($_SESSION['mesej']) ?></div>
     <?php unset($_SESSION['mesej'], $_SESSION['jenis']); ?>
 <?php endif; ?>
 
 <div class="card">
     <h2><?= $edit ? 'Kemaskini Kursus / Mesyuarat' : 'Daftar Kursus / Mesyuarat' ?></h2>
     <form method="post" enctype="multipart/form-data">
-        <input type="hidden" name="id" value="<?= e($edit['id'] ?? '') ?>">
+        <input type="hidden" name="id" value="<?= esc($edit['id'] ?? '') ?>">
         <div class="row">
             <div class="field">
                 <label>Tajuk</label>
-                <input type="text" name="tajuk" value="<?= e($edit['tajuk'] ?? '') ?>" required>
+                <input type="text" name="tajuk" value="<?= esc($edit['tajuk'] ?? '') ?>" required>
             </div>
             <div class="field">
                 <label>Tarikh</label>
-                <input type="date" name="tarikh" value="<?= e($edit['tarikh'] ?? '') ?>" required>
+                <input type="date" name="tarikh" value="<?= esc($edit['tarikh'] ?? '') ?>" required>
             </div>
         </div>
         <div class="field">
@@ -106,11 +106,11 @@ require 'includes/header.php';
         <?php foreach ($senarai as $i => $m): ?>
         <tr>
             <td><?= $i + 1 ?></td>
-            <td><?= e($m['tajuk']) ?></td>
-            <td><?= e($m['tarikh']) ?></td>
+            <td><?= esc($m['tajuk']) ?></td>
+            <td><?= esc($m['tarikh']) ?></td>
             <td>
                 <?php if ($m['bahan_pdf']): ?>
-                    <a href="uploads/<?= e($m['bahan_pdf']) ?>" target="_blank">Lihat PDF</a>
+                    <a href="uploads/<?= esc($m['bahan_pdf']) ?>" target="_blank">Lihat PDF</a>
                 <?php else: ?><span class="muted">-</span><?php endif; ?>
             </td>
             <td class="actions">
