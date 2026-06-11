@@ -13,13 +13,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         exit;
     }
 
-    $id     = $_POST['id'] ?? '';
-    $tajuk  = trim($_POST['tajuk'] ?? '');
+    $id = $_POST['id'] ?? '';
+    $tajuk = trim($_POST['tajuk'] ?? '');
     $tarikh = trim($_POST['tarikh'] ?? '');
 
     // validasi
     $ralat = [];
-    if ($tajuk === '')  { $ralat[] = 'Tajuk wajib diisi.'; }
+    if ($tajuk === '') { $ralat[] = 'Tajuk wajib diisi.'; }
     if ($tarikh === '') { $ralat[] = 'Tarikh wajib diisi.'; }
 
     // upload pdf (kalau ada)

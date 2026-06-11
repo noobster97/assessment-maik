@@ -37,7 +37,7 @@ if ($mesyuarat_id !== '') {
     $peserta = $stmt->fetchAll();
 
     foreach ($peserta as $p) {
-        if ($p['status'] === 'Hadir')           { $ringkasan['hadir']++; $ringkasan['jumlah']++; }
+        if ($p['status'] === 'Hadir') { $ringkasan['hadir']++; $ringkasan['jumlah']++; }
         elseif ($p['status'] === 'Tidak Hadir') { $ringkasan['tidak']++; $ringkasan['jumlah']++; }
     }
 }

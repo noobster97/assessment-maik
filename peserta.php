@@ -12,16 +12,16 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         exit;
     }
 
-    $id         = $_POST['id'] ?? '';
-    $nama       = trim($_POST['nama'] ?? '');
+    $id = $_POST['id'] ?? '';
+    $nama = trim($_POST['nama'] ?? '');
     $no_pekerja = trim($_POST['no_pekerja'] ?? '');
-    $jabatan    = trim($_POST['jabatan'] ?? '');
+    $jabatan = trim($_POST['jabatan'] ?? '');
 
     // validasi
     $ralat = [];
-    if ($nama === '')       { $ralat[] = 'Nama peserta wajib diisi.'; }
+    if ($nama === '') { $ralat[] = 'Nama peserta wajib diisi.'; }
     if ($no_pekerja === '') { $ralat[] = 'No. pekerja wajib diisi.'; }
-    if ($jabatan === '')    { $ralat[] = 'Jabatan wajib diisi.'; }
+    if ($jabatan === '') { $ralat[] = 'Jabatan wajib diisi.'; }
 
     if ($ralat) {
         $_SESSION['jenis'] = 'err';
